@@ -1,0 +1,92 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<title>To-DO List</title>
+</head>
+
+<style>
+body {
+	background-color: black;
+}
+#container {
+	font-family: cursive;
+	margin: auto;
+	background-image: url("paper.jpg");
+	height:600px;
+	width:800px;
+	border: solid 5px;
+}
+
+h1 {
+	text-align: center;
+	text-decoration: underline;
+}
+
+ol{
+
+	
+}
+</style>
+<body>
+
+	<div id="container">
+		<h1>To-Do List</h1>
+		Enter List Item <input type="text" id="txt" value"">
+		<button onClick="x.addItem()">Add</button><button onClick="x.deleteItems()">Delete</button>
+		<div id="list">
+ 			<ol id="myList">
+
+ 			</ol>
+
+ 			
+
+	   </div>
+
+
+
+
+
+
+	</div>
+
+<script>
+
+var List = function() {
+
+	var item ="";
+
+	this.addItem = function() {
+		item =  document.getElementById("txt").value;
+		if(item === "")
+		{
+			alert("Text box can't be emtpy!");
+			return;
+
+		}
+	
+		document.getElementById("myList").innerHTML+="<li><input type='checkbox'>" + item + "</input></li>";
+		$('#txt').val('');
+
+
+
+	}
+
+	this.deleteItems = function() {
+		$('input:checkbox:checked').parents("li").remove();
+	}
+
+	this.getItem = function() {
+		return item;
+	}
+}
+
+var x = new List();
+
+
+
+
+
+</script>
+
+</body>
+</html>
